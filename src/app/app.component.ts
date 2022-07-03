@@ -3,22 +3,14 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styles: [`
-    .white-text {
-      color: white;
-    }
-  `]
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  buttonClicked = false;
-  clicks = [];
+  showSecret = false;
+  log = [];
 
-  onShow() {
-    this.buttonClicked = true;
-    this.clicks.push(this.clicks.length + 1);
-  }
-  onHide() {
-    this.buttonClicked = false;
-    this.clicks.push(this.clicks.length + 1);
+  onToggleDetails() {
+    this.showSecret = !this.showSecret;
+    this.log.push(this.log.length++);
   }
 }
