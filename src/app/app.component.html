@@ -12,9 +12,9 @@
       <button class="btn btn-primary" (click)="onToggleDetails()">Display details</button>
       <p *ngIf="showSecret">Secret password: tuna</p>
       <div 
-      *ngFor="let n of log"
-      [ngStyle]="{backgroundColor: n > 4 ? 'blue' : 'transparent'}"
-      [ngClass]="{'white-text': n > 4}">
+      *ngFor="let n of log; let i = index"
+      [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}"
+      [ngClass]="{'white-text': i >= 4}">
       {{ n }}
       </div>
     </div>
