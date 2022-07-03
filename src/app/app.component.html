@@ -8,17 +8,15 @@
         <li>Log all button clicks in an array and output that array below the secret paragraph (maybe log a timestamp or simply an incrementing number)</li>
         <li>Starting at the 5th log item, give all future log items a blue background (via ngStyle) and white color (ngClass)</li>
       </ol>
-    </div>
-    <button *ngIf="!buttonClicked; else noButton" (click)="onShow()">Display details</button>
-    <ng-template #noButton>
-      <button (click)="onHide()">Hide details</button>
-      <p *ngIf="buttonClicked">Secret password = tuna</p>
+      <hr>
+      <button class="btn btn-primary" (click)="onToggleDetails()">Display details</button>
+      <p *ngIf="showSecret">Secret password: tuna</p>
       <div 
-        *ngFor="let n of clicks"
-        [ngStyle]="{backgroundColor: n > 4 ? 'blue' : 'transparent'}" 
-        [ngClass]="{'white-text': n > 4}"
-        >{{clicks}}
+      *ngFor="let n of log"
+      [ngStyle]="{backgroundColor: n > 4 ? 'blue' : 'transparent'}"
+      [ngClass]="{'white-text': n > 4}">
+      {{ n }}
       </div>
-    </ng-template>
+    </div>
   </div>
 </div>
